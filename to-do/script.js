@@ -1,5 +1,17 @@
 function adcTarefa() {
     var mensagem = "tarefa adicionada com sucesso!";
-    document.getElementById("mensagem").textContent = mensagem;
-}
 
+    let inputTarefa = document.getElementById("inputTarefa")
+    let tarefa = inputTarefa.value
+    document.getElementById("mensagem").textContent = mensagem;
+    var listaTarefas = document.getElementById("listaTarefas")
+    var novaTarefa = document.createElement("li")
+
+    novaTarefa.textContent = tarefa
+
+    listaTarefas.appendChild(novaTarefa)
+
+
+
+    inputTarefa.value = ""
+}
