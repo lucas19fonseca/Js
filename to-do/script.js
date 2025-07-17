@@ -1,18 +1,17 @@
-function adcTarefa(){
-    var inputTarefa = document.getElementById("inputTarefa")
-    var tarefa = inputTarefa.value.trim()
+function adcTarefa() {
+    var mensagem = "tarefa adicionada com sucesso!";
 
-    if(tarefa === ""){
-    alert("por favor preencha o campo")
-    return;
-    }
-
-    var ulLista = document.getElementById("ulLista")
+    let inputTarefa = document.getElementById("inputTarefa")
+    let tarefa = inputTarefa.value.trim()
+    document.getElementById("mensagem").textContent = mensagem;
+    var listaTarefas = document.getElementById("listaTarefas")
     var novaTarefa = document.createElement("li")
-    ulLista.appendChild(novaTarefa)
+
     novaTarefa.textContent = tarefa
 
-    inputTarefa.value = ""
+    listaTarefas.appendChild(novaTarefa)
 
-    alert ("tarefa adicionada com sucesso")
+
+
+    inputTarefa.value = ""
 }
