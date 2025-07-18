@@ -11,7 +11,6 @@ function adcTarefa() {
 
     listaTarefas.appendChild(novaTarefa)
 
-
-
     inputTarefa.value = ""
+    alert("Tarefa adiconada com sucesso!!")
 }
