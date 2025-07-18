@@ -1,16 +1,24 @@
 function adcTarefa() {
-    var mensagem = "tarefa adicionada com sucesso!";
+    const mensagem = document.getElementById("mensagem")
+    const inputTarefa = document.getElementById("inputTarefa")
+    const tarefa = inputTarefa.value.trim()
+    if (tarefa === "") {
+        var mensagemErro = "O campo tem que ter preencido"
+        mensagem.textContent = mensagemErro
+        mensagem.style.color = "#A34743";
+    }
+    else {
+        var mensagemSucesso = "Tarefa adicionada com sucesso"
+        mensagem.textContent = mensagemSucesso
+        mensagem.style.color = "#28A745";
+        var listaTarefas = document.getElementById("listaTarefas")
+        var novaTarefa = document.createElement("li")
+        novaTarefa.textContent = tarefa
+    }
 
-    let inputTarefa = document.getElementById("inputTarefa")
-    let tarefa = inputTarefa.value.trim()
-    document.getElementById("mensagem").textContent = mensagem;
-    var listaTarefas = document.getElementById("listaTarefas")
-    var novaTarefa = document.createElement("li")
 
-    novaTarefa.textContent = tarefa
 
     listaTarefas.appendChild(novaTarefa)
 
     inputTarefa.value = ""
-    alert("Tarefa adiconada com sucesso!!")
 }
