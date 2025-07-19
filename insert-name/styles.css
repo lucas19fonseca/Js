@@ -7,7 +7,6 @@ body {
 
         .container {
             max-width: 400px;
-            margin: 100px auto;
             padding: 20px;
             background-color: #ffffff;
             text-align: center;
@@ -24,12 +23,7 @@ body {
             margin-bottom: 20px;
         }
 
-        #mensagemsaudacao {
-            margin: 15px 0;
-            font-size: 18px;
-            color: #444;
-        }
-
+        
         button {
             padding: 10px 20px;
             background-color: #007bff;
