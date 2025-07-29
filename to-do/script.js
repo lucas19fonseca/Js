@@ -1,24 +1,28 @@
+let tarefas = []
+
 function adcTarefa() {
-    const mensagem = document.getElementById("mensagem")
-    const inputTarefa = document.getElementById("inputTarefa")
-    const tarefa = inputTarefa.value.trim()
-    if (tarefa === "") {
-        var mensagemErro = "O campo tem que ter preencido"
+    let mensagem = document.getElementById("mensagem")
+    let inputTarefa = document.getElementById("inputTarefa")
+    let novaTarefa = inputTarefa.value.trim()
+
+    if (novaTarefa == "") {
+        const mensagemErro = "Campo vazio, insira algo"
         mensagem.textContent = mensagemErro
-        mensagem.style.color = "#A34743";
+        mensagem.style.color = "#a34a34"
     }
     else {
-        var mensagemSucesso = "Tarefa adicionada com sucesso"
+        const mensagemSucesso = "tarefa adicionada com sucesso"
         mensagem.textContent = mensagemSucesso
-        mensagem.style.color = "#28A745";
-        var listaTarefas = document.getElementById("listaTarefas")
-        var novaTarefa = document.createElement("li")
-        novaTarefa.textContent = tarefa
+        mensagem.style.color = "green"
+        let listaTarefas = document.getElementById("listaTarefas")
+        let tarefaLi = document.createElement("li")
+        listaTarefas.appendChild(tarefaLi)
+        tarefaLi.textContent = novaTarefa
     }
 
-
-
-    listaTarefas.appendChild(novaTarefa)
-
     inputTarefa.value = ""
+}
+
+function renderizarTarefa() {
+
 }
