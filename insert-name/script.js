@@ -5,7 +5,7 @@ function mudarNome() {
         alert("insira um nome!")
     }
     else {
-        alert("Que nome bonito, " + nome + "!")
+        alert(`Que nome bonito,  ${nome}  !`)
         document.getElementById("mensagemsaudacao").textContent = "Olá " + nome
     }
 }
