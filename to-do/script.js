@@ -1,60 +1,46 @@
-let listaDeTarefas = []
+let tarefa = JSON.parse(localStorage.getItem("tarefa")) || [];
 
 function adcTarefa() {
-    let mensagem = document.getElementById("mensagem")
-    let inputTarefa = document.getElementById("inputTarefa")
-    let tarefa = inputTarefa.value.trim()
+    let inputTarefa = document.getElementById("inputTarefa").value.trim();
+    const mensagem = document.getElementById("mensagem");
 
-    if (tarefa === "") {
-        mensagem.textContent = "Campo vazio! Insira algo."
-        mensagem.style.color = "#A34747"
-        return
+    if (inputTarefa === "") {
+        mensagem.textContent = "Campo vazio, insira algo!";
+        mensagem.style.color = "#a34a34";
+    } else {
+        mensagem.textContent = "Tarefa adicionada com sucesso!";
+        mensagem.style.color = "green";
+        tarefa.push(inputTarefa);
+        localStorage.setItem("tarefa", JSON.stringify(tarefa)); // salva no localStorage
+        renderizarTarefa();
     }
-    else {
-        mensagem.textContent = "Tarefa adicionada com sucesso!"
-        mensagem.style.color = "#098f14ff"
-    }
 
-    listaDeTarefas.push(tarefa)
-    renderizarTarefa()
-
-    inputTarefa.value = ""
+    document.getElementById("inputTarefa").value = "";
 }
 
 function renderizarTarefa() {
-    let listaTarefas = document.getElementById("listaTarefas")
-    listaTarefas.innerHTML = ""
+    let listaTarefas = document.getElementById("listaTarefas");
+    listaTarefas.innerHTML = "";
 
-    for (let i = 0; i < listaDeTarefas.length; i++) {
-        let novaTarefa = document.createElement("li")
-        novaTarefa.textContent = listaDeTarefas[i]
+    for (let i = 0; i < tarefa.length; i++) {
+        let TarefaLi = document.createElement("li");
+        TarefaLi.textContent = tarefa[i];
 
+        let btnRemover = document.createElement("button");
+        btnRemover.textContent = "Remover";
+        btnRemover.onclick = function () {
+            removerTarefa(i);
+        };
 
-        let botaoRemover = document.createElement("button")
-        botaoRemover.className = "remover"
-        botaoRemover.textContent = "Remover"
-        botaoRemover.onclick = () => removerTarefa(i)
-
-        let botaoEditar = document.createElement("button")
-        botaoEditar.className = "editar"
-        botaoEditar.textContent = "Editar"
-        botaoEditar.onclick = () => editarTarefa(i)
-
-        novaTarefa.appendChild(botaoRemover)
-        novaTarefa.appendChild(botaoEditar)
-        listaTarefas.appendChild(novaTarefa)
+        TarefaLi.appendChild(btnRemover);
+        listaTarefas.appendChild(TarefaLi);
     }
 }
 
 function removerTarefa(i) {
-    listaDeTarefas.splice(i, 1)
-    renderizarTarefa()
+    tarefa.splice(i, 1);
+    localStorage.setItem("tarefa", JSON.stringify(tarefa)); // atualiza no localStorage
+    renderizarTarefa();
 }
-function editarTarefa(i) {
-    let tarefaEditada = prompt("Edite a tarefa:", listaDeTarefas[i])
-    
-    if (tarefaEditada && tarefaEditada.trim() !== "") {
-        listaDeTarefas[i] = tarefaEditada.trim()
-        renderizarTarefa()
-    }
-}
+
+renderizarTarefa();

@@ -1,0 +1,21 @@
+<!-- Fazer um programa que leia o número de um funcionário, seu número de horas trabalhadas, o valor que recebe por hora e calcula o salário desse funcionário. A seguir, mostre o número e o salário do funcionário, com duas casas decimais. -->
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcular Salário</title>
+</head>
+<body>
+    <script>
+        let id = prompt("Insira o ID do funcionário:");
+        let horas = Number(prompt("Insira as horas trabalhadas por dia"));
+        let valorPorHora = Number(prompt("Insira o valor salarial por hora:"));
+
+        let salarioTotal = horas * valorPorHora;
+    
+        alert(`O funcionário ${id} recebe R$ ${salarioTotal}`);
+    </script>
+</body>
+</html>
