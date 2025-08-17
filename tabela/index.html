@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let id = prompt("insira Id do produto")
+        let quantidade = prompt("insira quantidade do produto")
+        
+        let preço = 0
+        if( id == 1 ){
+            preço = 4
+        }
+        else if( id == 2 ){
+            preço =4,50
+        }
+        else if( id == 3 ){
+            preço =5
+        }
+        else if( id == 4 ){
+            preço =2
+        }
+        else if( id == 5 ){
+            preço =1,50
+        }
+        else{
+            alert("codigo invalido")
+            return
+        }
+        alert(`total R$${quantidade * preço}`)
+    </script>
+</body>
+</html>
