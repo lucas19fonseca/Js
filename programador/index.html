@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="apareceprompt()">clique aqui pra iniciar</button>
+    <script>
+        function apareceprompt() {
+            let area = prompt("Escolha a opção: 1- se você quer seguir front-end ou 2- back-end?")
+            if (area == "1") {
+                const techFront = prompt("Escolha a opção: 1- se você quer aprender react ou 2- se quer aprender vue")
+                console.log(techFront)
+            } else if (area == "2") {
+                const techBack = prompt("Escolha a opção: 1- Você quer aprender c# ou 2- se quer aprender     java?")
+                console.log(techBack)
+            } else {
+                alert("você não respondeu um opção valida!")
+            }
+            let listTecnologia = []
+            let fullstack = prompt("Escolha a opção: 1- você deseja seguir se especializando na área escolhida ou esolha 2- para seguir se desenvolvendo para se tornar Fullstack?")
+            let aprenderMais = prompt("Tem mais alguma outra tecnologia que gostaria de aprender? 1-sim ou 2-não")
+            while (aprenderMais == "1") {
+                let tecnologia = prompt("me diz qual tecnologia voce gostaria de aprender")
+                listTecnologia.push(tecnologia)
+                aprenderMais = prompt(`Que legal que quer estudar ${tecnologia}! Agora sua lista de aprendizado está assim: ${listTecnologia} existe mais alguma que queira aprender?1- sim ou 2-nao`)
+            }
+            alert("bons estudos!")
+        }
+    </script>
+</body>
+
+</html>
